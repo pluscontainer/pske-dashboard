@@ -92,9 +92,9 @@ export const passwordField = {
 
 export default {
   name: 'openstack',
-  displayName: 'OpenStack',
+  displayName: 'pluscloud open',
   weight: 400,
-  icon: 'openstack.svg',
+  icon: 'pluscloudopen.svg',
   secret: {
     details: [
       {
