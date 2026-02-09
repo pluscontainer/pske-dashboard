@@ -53,7 +53,7 @@ import GShootExternalToolsCard from '@/components/ShootDetails/GShootExternalToo
 import GShootInfrastructureCard from '@/components/ShootDetails/GShootInfrastructureCard'
 import GShootLifecycleCard from '@/components/ShootDetails/GShootLifecycleCard'
 import GShootMonitoringCard from '@/components/ShootDetails/GShootMonitoringCard'
-import GShootCredentialRotationCard from '@/components/ShootDetails/GShootCredentialRotationCard'
+// import GShootCredentialRotationCard from '@/components/ShootDetails/GShootCredentialRotationCard'
 import GTicketsCard from '@/components/GTicketsCard'
 import GShootAccessCard from '@/components/ShootDetails/GShootAccessCard'
 
