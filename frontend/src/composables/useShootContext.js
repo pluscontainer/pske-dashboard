@@ -279,7 +279,8 @@ export function createShootContextComposable (options = {}) {
 
   function resetNetworkingType () {
     if (!networkingType.value) {
-      networkingType.value = head(gardenerExtensionStore.networkingTypes)
+      const types = gardenerExtensionStore.networkingTypes
+      networkingType.value = types.includes('cilium') ? 'cilium' : head(types)
     }
   }
 
