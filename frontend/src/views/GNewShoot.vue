@@ -31,12 +31,14 @@ SPDX-License-Identifier: Apache-2.0
           <g-new-shoot-infrastructure-details />
         </v-card-text>
       </v-card>
+      <!-- Deactivated because of ETCD-IN-MEMORY
       <v-card>
         <g-toolbar title="Control Plane High Availability" />
         <v-card-text>
           <g-manage-control-plane-high-availability />
         </v-card-text>
       </v-card>
+      -->
       <v-card>
         <g-toolbar title="DNS Configuration" />
         <v-card-text>
@@ -61,6 +63,7 @@ SPDX-License-Identifier: Apache-2.0
           <g-manage-workers />
         </v-card-text>
       </v-card>
+      <!-- deactivated because we dont provide those AddOns
       <v-card
         v-show="!workerless"
       >
@@ -71,6 +74,7 @@ SPDX-License-Identifier: Apache-2.0
           <g-manage-addons create-mode />
         </v-card-text>
       </v-card>
+      -->
       <v-card>
         <g-toolbar title="Maintenance" />
         <v-card-text>
