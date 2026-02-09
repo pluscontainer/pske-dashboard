@@ -411,13 +411,13 @@ export default {
           key: 'credentialUsageCount',
           defaultSelected: true,
         },
-        {
-          title: 'ACTIONS',
-          align: 'end',
-          key: 'actions',
-          sortable: false,
-          defaultSelected: true,
-        },
+        // {
+        //   title: 'ACTIONS',
+        //   align: 'end',
+        //   key: 'actions',
+        //   sortable: false,
+        //   defaultSelected: true,
+        // },
       ]
       return map(headers, header => ({
         ...header,
