@@ -61,12 +61,6 @@ SPDX-License-Identifier: Apache-2.0
         />
       </v-list-item>
       <v-list-item>
-        <g-shoot-action-rotate-credentials
-          type="ALL_CREDENTIALS"
-          text
-        />
-      </v-list-item>
-      <v-list-item>
         <g-shoot-version-configuration
           text
         />
@@ -93,7 +87,6 @@ import GShootAccessCard from '@/components/ShootDetails/GShootAccessCard.vue'
 import GShootActionChangeHibernation from '@/components/ShootHibernation/GShootActionChangeHibernation.vue'
 import GShootActionMaintenanceStart from '@/components/ShootMaintenance/GShootActionMaintenanceStart.vue'
 import GShootActionReconcileStart from '@/components/GShootActionReconcileStart.vue'
-import GShootActionRotateCredentials from '@/components/GShootActionRotateCredentials.vue'
 import GShootActionDeleteCluster from '@/components/GShootActionDeleteCluster.vue'
 import GShootActionForceDelete from '@/components/GShootActionForceDelete.vue'
 import GShootVersionConfiguration from '@/components/ShootVersion/GShootVersionConfiguration.vue'
