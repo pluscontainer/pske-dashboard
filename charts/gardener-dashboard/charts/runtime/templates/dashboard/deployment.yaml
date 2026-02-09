@@ -232,4 +232,16 @@ spec:
             readOnly: true
           {{- end }}
       restartPolicy: Always
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - gardener-dashboard
+              topologyKey: kubernetes.io/hostname
 {{- end }}
