@@ -37,7 +37,7 @@ SPDX-License-Identifier: Apache-2.0
               :icon="providerType"
               class="mr-2"
             />
-            {{ providerType }}
+            {{ providerDisplayName }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="shootCloudProfileRef">
@@ -97,6 +97,12 @@ export default {
     }
   },
   computed: {
+    providerDisplayName () {
+      if (this.providerType === 'openstack') {
+        return 'pluscloud open'
+      }
+      return this.providerType
+    },
     zoneText () {
       return join(this.zones, ', ')
     },
@@ -109,7 +115,7 @@ export default {
     description () {
       const description = []
       if (this.extended && this.providerType) {
-        description.push(this.providerType)
+        description.push(this.providerDisplayName)
       }
       if (this.region) {
         description.push(this.region)

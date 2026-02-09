@@ -24,7 +24,7 @@ SPDX-License-Identifier: Apache-2.0
           :style="getVendorIconStyles(isHovering)"
         />
         <div class="mt-2 text-subtitle-1">
-          {{ providerType }}
+          {{ providerDisplayName }}
         </div>
       </div>
     </v-card>
@@ -53,6 +53,12 @@ export default {
     'update:modelValue',
   ],
   computed: {
+    providerDisplayName () {
+      if (this.providerType === 'openstack') {
+        return 'pluscloud open'
+      }
+      return this.providerType
+    },
     color () {
       return this.modelValue ? 'primary' : undefined
     },

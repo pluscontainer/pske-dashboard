@@ -62,7 +62,7 @@ const iconSrc = computed(() => {
     case 'gcp':
       return new URL('/src/assets/gcp.svg', import.meta.url)
     case 'openstack':
-      return new URL('/src/assets/openstack.svg', import.meta.url)
+      return new URL('/src/assets/pluscloudopen.svg', import.meta.url)
     case 'stackit':
       return new URL('/src/assets/stackit.svg', import.meta.url)
     case 'alicloud':
