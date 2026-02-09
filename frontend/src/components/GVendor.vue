@@ -103,6 +103,12 @@ export default {
     }
   },
   computed: {
+    providerDisplayName () {
+      if (this.providerType === 'openstack') {
+        return 'pluscloud open'
+      }
+      return this.providerType
+    },
     zoneText () {
       return join(this.zones, ', ')
     },

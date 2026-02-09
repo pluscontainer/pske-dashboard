@@ -457,9 +457,9 @@ export const useConfigStore = defineStore('config', () => {
     },
     {
       name: 'openstack',
-      displayName: 'OpenStack',
+      displayName: 'pluscloud open',
       weight: 400,
-      icon: 'openstack.svg',
+      icon: 'pluscloudopen.svg',
     },
     {
       name: 'alicloud',
