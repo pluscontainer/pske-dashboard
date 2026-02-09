@@ -400,6 +400,7 @@ SPDX-License-Identifier: Apache-2.0
             </v-card>
           </v-col>
           <v-col class="pa-3">
+          <!-- Removed because we dont show quotas here.
             <v-card>
               <g-toolbar title="Quota">
                 <template #append>
@@ -470,6 +471,7 @@ SPDX-License-Identifier: Apache-2.0
                 </g-list-item>
               </g-list>
             </v-card>
+          -->
           </v-col>
         </v-row>
       </v-col>
