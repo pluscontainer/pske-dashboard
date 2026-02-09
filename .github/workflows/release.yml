@@ -1,0 +1,108 @@
+# PSKE Dashboard Release - Build Image & Push Helm Charts
+#
+# Triggers on tags matching pske-* pattern
+#
+# Pushes:
+#   - Image: ghcr.io/pluscontainer/pske-dashboard:<version>
+#   - Charts: ghcr.io/pluscontainer/charts/pske-dashboard
+#            ghcr.io/pluscontainer/charts/pske-dashboard-identity
+#
+
+name: Release
+
+on:
+  push:
+    tags:
+      - 'pske-*'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  CHARTS_PATH: ${{ github.repository_owner }}/charts
+
+jobs:
+  build-image:
+    name: Build and Push Image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set VERSION file
+        run: echo "${GITHUB_REF_NAME#pske-}" > VERSION
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=match,pattern=pske-(.*),group=1
+            type=raw,value=latest
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+  push-charts:
+    name: Package and Push Charts
+    runs-on: ubuntu-latest
+    needs: build-image
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+
+      - name: Install yq
+        run: |
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+
+      - name: Login to GHCR
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | helm registry login ${{ env.REGISTRY }} \
+            --username ${{ github.actor }} \
+            --password-stdin
+
+      - name: Package and Push Identity chart
+        run: |
+          VERSION="${GITHUB_REF_NAME#pske-}"
+
+          yq -i '.name = "pske-dashboard-identity"' "charts/identity/Chart.yaml"
+          yq -i ".version = \"${VERSION}\"" "charts/identity/Chart.yaml"
+
+          sed -i '/^spec:$/a\  ingressClassName: nginx-oidc' "charts/identity/templates/ingress.yaml"
+
+          helm package charts/identity
+          helm push pske-dashboard-identity-*.tgz oci://${{ env.REGISTRY }}/${{ env.CHARTS_PATH }}
+
+      - name: Package and Push Dashboard chart
+        run: |
+          VERSION="${GITHUB_REF_NAME#pske-}"
+
+          yq -i '.name = "pske-dashboard"' "charts/gardener-dashboard/Chart.yaml"
+          yq -i ".version = \"${VERSION}\"" "charts/gardener-dashboard/Chart.yaml"
+          yq -i ".global.dashboard.image.tag = \"${GITHUB_REF_NAME}\"" "charts/gardener-dashboard/values.yaml"
+          yq -i '.global.dashboard.image.repository = "ghcr.io/pluscontainer/pske-dashboard"' "charts/gardener-dashboard/values.yaml"
+
+          helm package charts/gardener-dashboard
+          helm push pske-dashboard-${VERSION}.tgz oci://${{ env.REGISTRY }}/${{ env.CHARTS_PATH }}
