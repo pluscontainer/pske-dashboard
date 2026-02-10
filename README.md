@@ -73,3 +73,4 @@ yarn dev
 | `1b2ae8b7` | Remove unused UI components (CredentialRotation, Quota, HA Control Plane, Addons) |
 | `69601441` | Cilium as default network type |
 | `f7f81ebd` | Remove Credential Rotation from menu |
+| `cebf8fa8` | Remove Add-ons section from cluster details |
