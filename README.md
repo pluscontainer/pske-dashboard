@@ -1,6 +1,6 @@
 # PSKE Dashboard
 
-Standalone copy of [gardener/dashboard](https://github.com/gardener/dashboard) with customizations for pluscloud open.
+Standalone copy of [gardener/dashboard](https://github.com/gardener/dashboard) with customizations for PSKE.
 
 ## Setup
 
