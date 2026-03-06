@@ -32,6 +32,7 @@ git cherry-pick 58794f50  # PDB + podAntiAffinity
 git cherry-pick 1b2ae8b7  # Remove unused UI components
 git cherry-pick 69601441  # Cilium as default network type
 git cherry-pick f7f81ebd  # Remove Credential Rotation from menu
+git cherry-pick 249d7612  # Filter credentials by cloud profile label
 
 # 4. Push and create PR
 git push origin release/pske-1.85.0
@@ -74,3 +75,4 @@ yarn dev
 | `69601441` | Cilium as default network type |
 | `f7f81ebd` | Remove Credential Rotation from menu |
 | `cebf8fa8` | Remove Add-ons section from cluster details |
+| `249d7612` | Filter credentials by cloud profile label |
