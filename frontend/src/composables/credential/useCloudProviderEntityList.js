@@ -14,6 +14,11 @@ import { useCredentialStore } from '@/store/credential'
 
 import { getCloudProviderEntityList } from './helper'
 
+import filter from 'lodash/filter'
+import get from 'lodash/get'
+
+const CLOUD_PROFILE_LABEL = 'cloudprofile.garden.sapcloud.io/name'
+
 export const useCloudProviderEntityList = (providerType, options = {}) => {
   if (!isRef(providerType)) {
     throw new TypeError('First argument `providerType` must be a ref object')
@@ -22,12 +27,21 @@ export const useCloudProviderEntityList = (providerType, options = {}) => {
   const {
     credentialStore = useCredentialStore(),
     vendorType,
+    cloudProfileName,
   } = options
 
   return computed(() => {
-    return getCloudProviderEntityList(providerType.value, {
+    const entityList = getCloudProviderEntityList(providerType.value, {
       credentialStore,
       vendorType: unref(vendorType),
+    })
+    const cloudProfileNameValue = unref(cloudProfileName)
+    if (unref(vendorType) !== 'infra' || !cloudProfileNameValue) {
+      return entityList
+    }
+    return filter(entityList, binding => {
+      const label = get(binding, ['metadata', 'labels', CLOUD_PROFILE_LABEL])
+      return !label || label === cloudProfileNameValue
     })
   })
 }

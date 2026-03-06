@@ -48,19 +48,6 @@ SPDX-License-Identifier: Apache-2.0
           :binding="item"
         />
       </template>
-      <template #append-item>
-        <v-divider class="mb-2" />
-        <v-btn
-          text
-          class="mx-2 text-primary"
-          @click="openSecretDialog"
-        >
-          <v-icon class="mr-2">
-            mdi-plus
-          </v-icon>
-          Add new Secret
-        </v-btn>
-      </template>
     </v-select>
     <g-secret-dialog-wrapper
       :visible-dialog="visibleSecretDialog"
@@ -124,6 +111,9 @@ export default {
       required: true,
       validator: value => ['infra', 'dns'].includes(value),
     },
+    cloudProfileName: {
+      type: String,
+    },
     registerVuelidateAs: {
       type: String,
     },
@@ -154,9 +144,10 @@ export default {
 
     const providerType = toRef(props, 'providerType')
     const vendorType = toRef(props, 'vendorType')
+    const cloudProfileName = toRef(props, 'cloudProfileName')
     const credential = toRef(props, 'modelValue')
 
-    const cloudProviderEntityList = useCloudProviderEntityList(providerType, { credentialStore, vendorType })
+    const cloudProviderEntityList = useCloudProviderEntityList(providerType, { credentialStore, vendorType, cloudProfileName })
 
     const isDnsProvider = computed(() => vendorType.value === 'dns')
     let composable
