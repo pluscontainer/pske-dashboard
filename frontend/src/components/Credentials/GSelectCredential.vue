@@ -48,19 +48,6 @@ SPDX-License-Identifier: Apache-2.0
           :binding="item.raw"
         />
       </template>
-      <template #append-item>
-        <v-divider class="mb-2" />
-        <v-btn
-          text
-          class="mx-2 text-primary"
-          @click="openSecretDialog"
-        >
-          <v-icon class="mr-2">
-            mdi-plus
-          </v-icon>
-          Add new Secret
-        </v-btn>
-      </template>
     </v-select>
     <g-secret-dialog-wrapper
       :visible-dialog="visibleSecretDialog"
@@ -121,6 +108,9 @@ export default {
     providerType: {
       type: String,
     },
+    cloudProfileName: {
+      type: String,
+    },
     registerVuelidateAs: {
       type: String,
     },
@@ -152,9 +142,10 @@ export default {
     })
 
     const providerType = toRef(props, 'providerType')
+    const cloudProfileName = toRef(props, 'cloudProfileName')
     const credential = toRef(props, 'modelValue')
 
-    const cloudProviderEntityList = useCloudProviderEntityList(providerType, { credentialStore, gardenerExtensionStore, cloudProfileStore })
+    const cloudProviderEntityList = useCloudProviderEntityList(providerType, { credentialStore, gardenerExtensionStore, cloudProfileStore, cloudProfileName })
 
     const { dnsProviderTypes } = storeToRefs(gardenerExtensionStore)
     const isDnsProvider = computed(() => dnsProviderTypes.value.includes(providerType.value))
