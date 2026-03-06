@@ -23,6 +23,7 @@ SPDX-License-Identifier: Apache-2.0
           v-model="infrastructureBinding"
           :provider-type="providerType"
           vendor-type="infra"
+          :cloud-profile-name="cloudProfileRef && cloudProfileRef.name"
         />
       </v-col>
       <v-col cols="3">
