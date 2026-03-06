@@ -20,6 +20,9 @@ import {
 } from './helper'
 
 import filter from 'lodash/filter'
+import get from 'lodash/get'
+
+const CLOUD_PROFILE_LABEL = 'cloudprofile.garden.sapcloud.io/name'
 
 export const useCloudProviderEntityList = (providerType, options = {}) => {
   if (!isRef(providerType)) {
@@ -30,15 +33,21 @@ export const useCloudProviderEntityList = (providerType, options = {}) => {
     credentialStore = useCredentialStore(),
     gardenerExtensionStore = useGardenerExtensionStore(),
     cloudProfileStore = useCloudProfileStore(),
+    cloudProfileName = null,
   } = options
 
   const { dnsProviderTypes } = storeToRefs(gardenerExtensionStore)
   const { sortedProviderTypeList } = storeToRefs(cloudProfileStore)
 
+  const cloudProfileNameValue = isRef(cloudProfileName) ? cloudProfileName : { value: cloudProfileName }
+
   return computed(() => {
     if (sortedProviderTypeList.value.includes(providerType.value)) {
       return filter(credentialStore.infrastructureBindingList, binding => {
-        return bindingProviderType(binding) === providerType.value
+        if (bindingProviderType(binding) !== providerType.value) return false
+        const label = get(binding, ['metadata', 'labels', CLOUD_PROFILE_LABEL])
+        if (label && cloudProfileNameValue.value) return label === cloudProfileNameValue.value
+        return true
       })
     }
     if (dnsProviderTypes.value.includes(providerType.value)) {
