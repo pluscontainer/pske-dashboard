@@ -85,7 +85,26 @@ export function createShootHelperComposable (shootItem, options = {}) {
   })
 
   const cloudProfiles = computed(() => {
-    return cloudProfileStore.cloudProfilesByProviderType(providerType.value)
+    const allProfiles = cloudProfileStore.cloudProfilesByProviderType(providerType.value)
+    const bindings = credentialStore.infrastructureBindingList
+
+    // only show cloud profiles where the user has a secret for
+    const filteredProfiles = []
+    for (const profile of allProfiles) {
+      const profileName = profile.metadata.name
+      const hasSecret = bindings.some(b => {
+        const label = b.metadata?.labels?.['cloudprofile.garden.sapcloud.io/name']
+        return label === profileName
+      })
+      if (hasSecret) {
+        filteredProfiles.push(profile)
+      }
+    }
+
+    // fallback: if no bindings have the label at all, show everything
+    if (filteredProfiles.length === 0) return allProfiles
+
+    return filteredProfiles
   })
 
   const defaultCloudProfileRef = computed(() => {
