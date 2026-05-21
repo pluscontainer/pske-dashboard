@@ -23,24 +23,28 @@ All changes go through pull requests.
 git fetch upstream --tags
 
 # 2. Create release branch
-git checkout -b release/pske-1.85.0 1.85.0
+git checkout -b release/pske-1.86.0 1.86.0
 
 # 3. Cherry-pick PSKE commits
-git cherry-pick 41641336  # Cleanup upstream + PSKE release workflow
-git cherry-pick 1e194fca  # pluscloudopen OpenStack provider + logo
-git cherry-pick 58794f50  # PDB + podAntiAffinity
-git cherry-pick 1b2ae8b7  # Remove unused UI components
-git cherry-pick 69601441  # Cilium as default network type
-git cherry-pick f7f81ebd  # Remove Credential Rotation from menu
-git cherry-pick 249d7612  # Filter credentials by cloud profile label
+git cherry-pick 06b15c4b  # Cleanup upstream + PSKE release workflow
+git cherry-pick 717533c8  # pluscloudopen OpenStack provider + logo
+git cherry-pick 564e8876  # PDB + podAntiAffinity
+git cherry-pick a897ba05  # Remove unused UI components
+git cherry-pick b1498eae  # Remove Add-ons section from cluster details
+git cherry-pick f895ceb4  # Update README
+git cherry-pick 72dcee98  # Cilium as default network type
+git cherry-pick 30211d6b  # Remove Credential Rotation from menu
+git cherry-pick 0ba594c7  # Adding cherry-pick to readme.md
+git cherry-pick 6463cec8  # Filter credentials by cloud profile label
+git cherry-pick 53b58479  # Adding Cherry-Pick to README.md
 
 # 4. Push and create PR
-git push origin release/pske-1.85.0
+git push origin release/pske-1.86.0
 # → Create PR to main
 
 # 5. After merge: Create tag
-git tag pske-1.85.0
-git push origin pske-1.85.0
+git tag pske-1.86.0
+git push origin pske-1.86.0
 ```
 
 ## Creating a Release
@@ -48,14 +52,14 @@ git push origin pske-1.85.0
 Pushing a tag triggers the GitHub Actions workflow:
 
 ```bash
-git tag pske-1.85.0
-git push origin pske-1.85.0
+git tag pske-1.86.0
+git push origin pske-1.86.0
 ```
 
 GitHub Actions builds and pushes:
-- Image: `ghcr.io/pluscontainer/pske-dashboard:1.85.0`
-- Chart: `oci://ghcr.io/pluscontainer/charts/pske-dashboard:1.85.0`
-- Chart: `oci://ghcr.io/pluscontainer/charts/pske-dashboard-identity:1.85.0`
+- Image: `ghcr.io/pluscontainer/pske-dashboard:1.86.0`
+- Chart: `oci://ghcr.io/pluscontainer/charts/pske-dashboard:1.86.0`
+- Chart: `oci://ghcr.io/pluscontainer/charts/pske-dashboard-identity:1.86.0`
 
 ## Local Development
 
@@ -68,11 +72,11 @@ yarn dev
 
 | Commit | Description |
 |--------|-------------|
-| `41641336` | Cleanup upstream files + PSKE release workflow |
-| `1e194fca` | Provider "pluscloudopen" for OpenStack + logo |
-| `58794f50` | PDB + podAntiAffinity in Helm chart |
-| `1b2ae8b7` | Remove unused UI components (CredentialRotation, Quota, HA Control Plane, Addons) |
-| `69601441` | Cilium as default network type |
-| `f7f81ebd` | Remove Credential Rotation from menu |
-| `cebf8fa8` | Remove Add-ons section from cluster details |
-| `249d7612` | Filter credentials by cloud profile label |
+| `06b15c4b` | Cleanup upstream files + PSKE release workflow |
+| `717533c8` | Provider "pluscloudopen" for OpenStack + logo |
+| `564e8876` | PDB + podAntiAffinity in Helm chart |
+| `a897ba05` | Remove unused UI components (CredentialRotation, Quota, HA Control Plane, Addons) |
+| `b1498eae` | Remove Add-ons section from cluster details |
+| `72dcee98` | Cilium as default network type |
+| `30211d6b` | Remove Credential Rotation from menu |
+| `6463cec8` | Filter credentials by cloud profile label |
