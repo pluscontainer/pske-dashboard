@@ -11,10 +11,18 @@ git remote add upstream https://github.com/gardener/dashboard.git
 
 ## Branching Strategy
 
-- `release/pske-x.y.z` - Release branches
-- `feature/*` - Feature branches
+- `main` - Mirrors upstream main (kept in sync, no PSKE commits)
+- `release/pske-x.y.z` - Pure upstream tag, base for the release
+- `cherry-pick/pske-x.y.z` - PSKE commits applied on top of the release branch
 
-All changes go through pull requests.
+PRs go from `cherry-pick/pske-x.y.z` → `release/pske-x.y.z`.
+
+## Syncing main with Upstream
+
+```bash
+git fetch upstream
+git push origin upstream/main:main --force
+```
 
 ## Adopting a New Upstream Release
 
@@ -22,27 +30,30 @@ All changes go through pull requests.
 # 1. Fetch upstream
 git fetch upstream --tags
 
-# 2. Create release branch
+# 2. Create release branch from upstream tag
 git checkout -b release/pske-1.86.0 1.86.0
+git push --set-upstream origin release/pske-1.86.0
 
-# 3. Cherry-pick PSKE commits
+# 3. Create cherry-pick branch from release branch
+git checkout -b cherry-pick/pske-1.86.0
+
+# 4. Cherry-pick PSKE commits (resolve conflicts as needed)
 git cherry-pick 06b15c4b  # Cleanup upstream + PSKE release workflow
 git cherry-pick 717533c8  # pluscloudopen OpenStack provider + logo
 git cherry-pick 564e8876  # PDB + podAntiAffinity
 git cherry-pick a897ba05  # Remove unused UI components
 git cherry-pick b1498eae  # Remove Add-ons section from cluster details
-git cherry-pick f895ceb4  # Update README
 git cherry-pick 72dcee98  # Cilium as default network type
 git cherry-pick 30211d6b  # Remove Credential Rotation from menu
-git cherry-pick 0ba594c7  # Adding cherry-pick to readme.md
 git cherry-pick 6463cec8  # Filter credentials by cloud profile label
-git cherry-pick 53b58479  # Adding Cherry-Pick to README.md
 
-# 4. Push and create PR
-git push origin release/pske-1.86.0
-# → Create PR to main
+# 5. Push cherry-pick branch
+git push --set-upstream origin cherry-pick/pske-1.86.0
 
-# 5. After merge: Create tag
+# 6. Create PR: cherry-pick/pske-1.86.0 → release/pske-1.86.0
+# The diff shows exactly the PSKE customizations against clean upstream.
+
+# 7. After merge: create tag → triggers build
 git tag pske-1.86.0
 git push origin pske-1.86.0
 ```
