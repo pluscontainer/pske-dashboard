@@ -149,26 +149,35 @@ global:
     #     usePKCE: true
 
     frontendConfig:
-      landingPageUrl: https://github.com/gardener
+      landingPageUrl: https://www.plusserver.com/produkte/managed-kubernetes
       # # Avatar source configuration for members, accounts, and general dashboard avatars
       # # Note: The ticket feature has its own separate avatarSource configuration (see frontendConfig.ticket.avatarSource)
       # # Possible values: gravatar, none
       # # Default: gravatar
       # avatarSource: gravatar
       # # asset configuration (see https://github.com/gardener/dashboard/blob/master/docs/customization.md#logos-and-icons for the format and generation of the default values).
-      # assets:
-      #   favicon-16x16.png: |
-      #   favicon-32x32.png: |
-      #   favicon-96x96.png: |
-      #   favicon.ico: |
-      #   logo.svg: |
+      assets:
+        favicon-16x16.png: |
+          iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAPhJREFUOE+9U90JwjAQ/iIIPrSDuIPQdJggncI4RZEOYwR36CDxQSkYSS5Hm1oDIpjHu973c99V4McnsvOdlaGvSvPpu+8BPOgEMAXobmfAHYlNHFJWdwFgQl0VNffeFQQQ/xgoWqC6hCqSmZkCqyN7lQAkitwxb4HleUZV1G0/yOb6INlhqUsWeNvBN0lvdxusvGQA++1a0zDvJtpTpSELH5qnfgiWnoBprve4t5HEW1lOwcfUWd3uNqbZrg04nVAna8spsEe4C1Q5yuZBSod6rOftwogtBRhTkICrMylYHZk1IKrZIVF8Uzv+3P7/L8wY8wqy8qj5Ank0hRHi2CHUAAAAAElFTkSuQmCC
+        favicon-32x32.png: |
+          iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAb1JREFUWEftV8uRwjAMlQ/cQiFUQSgmu2UQymBTDEkVFAI3Dt6xJcdObMlxdmeyswMnJrGlp6ffi4KNf2pj//AzAN3zZgNoqtPaQN4AeAa6Rw3NvhepXZoCwVYagLkA6gagL9Ds2wkIfHemZ7V/py9YD9H5Fs/rUyogiQF3EUGMoKybHkAPAOqIAMb/BIiAd4+pjQSdchGOBoxDMMaNYwMIU5NKQXQnwWIAJN8F6ASdz9uNqwHpzoyFQgZm0SxjIJl7hyMD4KnHQkzl0z4LCm9+xjHRVKyffBGGl6WiSgN03cSykANwjPNOld1U6np/WQY+D7sWuoCtMM+ZWSEAYAwGxr/uL7sLPg47fhcgM3EgZMcDcEi9A2q7MBw9mJlgIlcAR43dYTZarwEGZIIcTqs9tkUd9YcAzKeUZQQj5vZBQQrOwHSCVAPpXe+qvagI+UDkbYgLybdQaRviuPazpHwXBIpn1SDyLculMTeKaZC4ZbRqFMcr/f8uIy9WXN/XSVGziIFosThxsUiQYOGuFiSyJKO5MMoyUkhWGXmx4qL0IIol2YailOuZ5LR8f5hsycDSVAnn8qr4F5xIJr4BITtuMLxOsaYAAAAASUVORK5CYII=
+        favicon-96x96.png: |
+          iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAAAXNSR0IArs4c6QAABhhJREFUeF7tnFtuGzEMReUC+UsWklW0WYwRdBVJVlEEXkydVWQhyV+AutA8bI+GkkjqcsYO6F/P6HEPSVGP0Sb4b1UFNqvW7pUHB7CyETgAB7CyAitXf70esPv4NdFue7dfWUtV9VcM4PMwBXB7lX25ykZ3wu8cgMrlYC85AJiUuoIcgE432FsOACalriAHoNMN9pYDgEmpK8gB6HSDveUAYFLqCnIAhG5xeWCpJYG1AID7iJsJ7z6eQ9g8hXB4Cdu7Z51ZM9/q1oE2f6dPHx7M4Rv0EQPg2LBREiCEXuynoeTpAlye1z6Ew1v3N8oYjPrYDoC0xtjzBggn0bmCV1zn8NIEYyb+0dCava4dQLcwNoafVAcBBLjoOSaCNqH6VjAPDIDWhmYBMscE1WMMEAjDqrQNB0ADgS/8GNP7TZeYaVFZUL9Jcxa2jmNHQYYMiAXEj43CApBA2H3GLKYU46PoMaOid7q4aWgnZNfVcSAnYCQQFhLfBkANQgj7QYyc+GXhR/m4AM7lrnrc4aE3CgoWI2QpQiHeA44C5QbmbCt5wrcAULfNRnw7DxB3VNFBjQeIvOGYappOLO08gAdBZvUTAUF7wsWxSGEYwjC0BABi2QBgXa0ewDIQ++WNBQAkljqzEKWVIQBUB+WwD9vbODCb/WwB1Ds4dEwBoRUAu222EOwA0B0cJlSANK8FQCnPD5uf8/mJwkCYPmMIgAo9Q0xFTHS0AGp15xYXtzYn72wAkJ0EzzY1AGriFwdmGy8wApBav8F6ixQAV/zTRI9YKsFnRXgAVEdL7isV5mSl/NPRmjroUATPigwAMK2fNSsFuL1G/JIXgMcCLACp9VtDaBG/X1Q033s2BiC04FbBLIDOlyqgYQgMQBF+0nw5N39IZqSv71+TkxeP9zfTkxjkGo/QIHJeAAxDOAAt4acOYWZ1r+9fky9kHu9vpn2ZAVCIn1v6DrhsyBJAm6v2QOOsNJ6weEuPl9QBlN9nTlT7xwzDEBBAusXYYHEMdaoAGGWwH5l7d5txnVWMBDD9aK7lXBBDmYUBzLMh0DhgCaD50FKJw/cHkH6HW7ZKYiO72+CW/ZITEH/ev7KnJn6EMDkb+i8Esr7f9zfzUxWyvg19mJ1Fjaft+N8mZ0530B6QPW4o01P+9DS7GFLNwnESVg0vkxT1Qvo2ttwBsBgiHqJTVweA0JZVhgMYcnpqfYelYONDEgDSqqi4CkrTck1ZNAvqJ2Npmg3J8jwN5RiboYEhASQ7SLj1EkqjRT0Auc6VdMYSgOmRvpUBXORSRLqH2tbIi16Mw61zAT2AyC60AzFj8avqAbbL0TDvxgFAZQqXtyEzfH57Fry1hkUMZmgAbWHoIrck0+8ccOEn8gADaNjERoo/WhqizHn+Dws/eABkGGIcbkUIlcvnW8o2TD/Li3GcyUm2w9THd4U5gVYgybWV6joAhwwqWmJD0NH1Zwdz6ZRUKwzlabWBUVrXAtZvE4I6cagP9PxwLuUMNh5AjwXxdEO/gCW1Rqrl0sO53IH5WxxPz3pB3MKLt5j4Bxp2g/C5tWYtPTVpRW6t9YCqJwDaJkhi7ELQaUCuXEmgEF8zCJNhjPExeW1wF4i97BhwsjT/TLUAaQEPKFrZuh9qV+8oUnqnwCtsAfgYUEVhB4At/thGobVpB+Gq1VOaCdtWlf30gA2AUp7fX1eT3Hh43mJmZ6UA6sL34fDqr6vhTrKqHlK5aI8LoC58pD9dKuH2QWDpuUexHiBteBXCsdmnayg7sYpXlsWXYuZFfPEuCC/Svihh4AC0NJgPQtlNgfCsiSQzTDJaiwHQIj6rw4yesB8RiofqW6Z97QBsLm5lXLTHVryP8aULAGtF5SE0n45rB9AtCxjum3Zlxx83pp+f2S/culgTPf3fqI8YABMIQheXCtHXZf4BNdmsIwRcH3EARmH8+nqRSWEBiKpufJg7D2isxvp1B2CtcKV8B+AAlAp4CFIKh3rNAaCUVJbjAJTCoV5zACglleU4AKVwqNccAEpJZTkOQCkc6jXJ6WhUnQblXO9EzECMNYp0AGuoflanA3AAKyuwcvXuASsD+A/U+HOdSsRMYAAAAABJRU5ErkJggg==
+        favicon.ico: |
+          AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAACMuAAAjLgAAAAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+//7z3v/+8t7////+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////vz/+L9b//i+Wv///vz////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+/P/3uk7/97lN///+/P////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////78//e6Tv/3uU3///78////////////////////////////////////////////////////////////////////////////////////////////////////////+/X//OfD///79P/////////////////////////////79f/+8t//97VC//e1Qf/+8t////v2//////////////////////////////v1//zow///+/X///////////////////////////////////////////////////////zow//1phz/+cx+///89/////////79//3v1f/6zoP/97M+//WnHv/0ngf/9J4H//WnHv/3tD//+s6D//3v1v///v3////////8+P/6zX//9aYc//znw/////////////////////////////////////////////////////////z2//nMfv/1oA7/+s2A//725//6z4X/9aYc//WlGv/4vFX/+tGJ//auMf/2rjD/+tGJ//i8Vf/1pRr/9aYc//rPhv/+9uf/+s2B//WgDv/5zH3///z2//////////////////////////////////////////////////////////////z3//nNgP/1ohP/9q0t//WjFP/5x3D//e/W///+/P///vz/97pO//e5Tf///vz///78//3v1v/5xm//9aMU//atLv/1ohP/+c1////89////////////////////////////////////////////////////////////////////////vTk//atL//0lwD/+LpR//768f/////////////+/P/3uk7/97lN///+/P////////////768v/4u1H/9JcA//atLv/+9OT////////////////////////////////////////////////////////////////////////////6z4X/9aMV//e6T//1ohL/+s1////89/////////78//e4Tv/3uE3///78/////////Pj/+s2A//WiEv/3uk//9aMV//rPhf///////////////////////////////////////////////////////////////////////e7V//WmHv/5x3D///v0//rNf//1oA7/+c1////8+P///v3/+s1///nNfv///v3///z4//nNgP/1oA7/+c1+///79P/5x3D/9aYd//3u1P/////////////////////////////////////////////////////////////////6zoP/9aUc//3v1f////////z3//nNf//1nw3/+s6B///+/P///Pj///z4///+/P/6zoL/9Z8N//nMfv///Pf///////3v1f/1pRz/+s6C//////////////////////////////////////////////////////////////v1//e0P//4vFX///78//////////////z3//rOgf/4vVf//vnx//3qyv/96sn//vrx//i9V//6zYD///z3//////////////78//i9Vv/3sz7///v1/////////////////////////////////////v///vz///78/////v/+8t//9acf//rRif////////78///+/P///v3///36//768f///vz//OO3//zit////vz//vrx///9+v///v3///78///+/P//////+tGK//WnHv/+8t7////+///+/P///vz////+/////////////vLf//i/W//3uk3/97pP//e1Qv/0ngf/9q4x//e7T//3uk7/97lL//nNf////Pf//erJ//zjt//726P/+9ui//zjt//96sn///z3//nNf//3uUv/97pO//e7T//2rjH/9J4H//e1Qv/3uk//97pN//i/Wv/+8t7////////////+8t//+L5a//e5TP/3uU7/97RB//SeB//2rjD/97pO//e5Tf/3uEr/+cx+///89//96sn//OO3//vbo//726L//OO3//3qyf///Pf/+c1///e4Sv/3uU3/97pO//auMP/0ngf/97RB//e5Tv/3uUz/+L5Z//7y3v///////////////v///vz///78/////v/+8t//9acf//rRif////////78///+/P///v3///36//768f///vz//OO3//zit////vz//vrx///9+v///v3///78///+/P//////+tGK//WnHv/+8t7////+///+/P///vz////+///////////////////////////////////79f/3tD//+LxV///+/P/////////////89//6zoL/+L1X//758f/96sr//erJ//768f/4vlj/+s6B///89//////////////+/P/4vVf/97M+///79f////////////////////////////////////////////////////////////rOg//1pRv//e7V/////////Pj/+s2A//WfDf/6zYD///78///8+P///Pj///78//rOgf/1nw3/+c1////89////////e/W//WlHP/6zoL//////////////////////////////////////////////////////////////////e/V//WmHv/5x3D///v0//rNgP/1oA7/+cx9///89////v3/+s2A//nNf////v3///z4//nNf//1oA7/+s1////79P/5x3H/9aYd//3u1P//////////////////////////////////////////////////////////////////////+s+F//WjFf/4ulD/9aIS//nMfv///Pf////////+/P/3uE7/97hN///+/P////////z3//rNf//1ohL/97pQ//WjFv/6z4T////////////////////////////////////////////////////////////////////////////+9eT/9q0v//SXAP/3ulD//vrx//////////////78//e6Tv/3uU3///78/////////////vry//i7Uf/0lwD/9qwu//705P////////////////////////////////////////////////////////////////////////z4//rNgf/1ohP/9qws//WjFP/5x3D//e/W///+/P///vz/97pO//e5Tf///vz///78//3v1//5x3H/9aMV//asLP/1ohP/+c2A///89//////////////////////////////////////////////////////////////89v/6zX//9aAO//nMfv/+9ef/+s+F//WmHP/1pRr/+L1W//rRiv/2rjH/9q4x//rRiv/4vVf/9aYb//WmG//6z4T//vXm//rNf//1oA7/+cx+///89v///////////////////////////////////////////////////////OjD//WlHP/5zH3///z3/////////v3//e/V//rOgv/3sz7/9ace//SeB//0ngf/9ace//ezPf/6zoH//e7V///+/f////////z3//nMfv/1pRv//OfD////////////////////////////////////////////////////////+/X//OfC///79P/////////////////////////////79f/+8t7/97VC//e0Qf/+8t7///v1//////////////////////////////v0//znwv//+/X////////////////////////////////////////////////////////////////////////////////////////////////////////+/P/3uk7/97lN///+/P////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////78//e6Tv/3uU3///78/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////vz/+L9a//i+Wf///vz//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////v/+8t7//vLe/////v//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+        logo.svg: |
+          PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEzNiAxMzYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMDA5YmY0O30uY2xzLTJ7ZmlsbDojOTlkN2ZiO308L3N0eWxlPjwvZGVmcz48ZyBpZD0iSWNvbiI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJtMTI3Ljk4LDcwLjk5di02aC0xNy4xYy0uNjYtOS42LTQuNDktMTguMzQtMTAuNDUtMjUuMThsMTIuMS0xMi4xLTQuMjQtNC4yNS0xMi4xLDEyLjFjLTYuODQtNS45NS0xNS41OC05Ljc4LTI1LjE4LTEwLjQ0VjguMDJoLTZ2MTcuMWMtOS42LjY2LTE4LjM0LDQuNDktMjUuMTgsMTAuNDRsLTEyLjEtMTIuMS00LjI0LDQuMjUsMTIuMSwxMi4xYy01Ljk1LDYuODQtOS43OCwxNS41OC0xMC40NCwyNS4xOEg4LjA1djZoMTcuMWMuNjQsOS4zNSw0LjI3LDE4LjEzLDEwLjQzLDI1LjE5bC0xMi4wOSwxMi4wOSw0LjI0LDQuMjQsMTIuMDktMTIuMDljNy4wNyw2LjE3LDE1Ljg0LDkuOCwyNS4xOSwxMC40M3YxNy4xaDZ2LTE3LjFjOS42LS42NiwxOC4zNC00LjQ5LDI1LjE4LTEwLjQ0bDEyLjEsMTIuMSw0LjI0LTQuMjQtMTIuMS0xMi4xYzUuOTYtNi44NCw5Ljc5LTE1LjU4LDEwLjQ1LTI1LjE4aDE3LjFabS0yMy4xMSwwYy0uNjQsNy45NS0zLjgxLDE1LjE5LTguNjksMjAuOTNsLTE0LjkzLTE0LjkzaC00LjI0djQuMjRsMTQuOTMsMTQuOTNjLTUuNzQsNC44Ny0xMi45OSw4LjA0LTIwLjkzLDguNjh2LTE4Ljg1aC02djE4Ljg1Yy03Ljc1LS42Mi0xNS4wMi0zLjYyLTIwLjk0LTguNjdsMTQuOTQtMTQuOTR2LTQuMjRoLTQuMjRsLTE0Ljk0LDE0LjkzYy01LjA1LTUuOTItOC4wNS0xMy4xOC04LjY3LTIwLjkzaDE4Ljg1di02aC0xOC44NWMuNjQtNy45NCwzLjgtMTUuMTksOC42OC0yMC45M2wxNC45MywxNC45M2g0LjI0di00LjI1bC0xNC45Mi0xNC45MmM1LjczLTQuODgsMTIuOTgtOC4wNSwyMC45Mi04LjY5djE4Ljg2aDZ2LTE4Ljg2YzcuOTQuNjQsMTUuMTksMy44MSwyMC45Myw4LjY5bC0xNC45MywxNC45MnY0LjI1aDQuMjRsMTQuOTMtMTQuOTNjNC44OCw1Ljc0LDguMDUsMTIuOTksOC42OSwyMC45M2gtMTguODZ2NmgxOC44NloiLz48L2c+PGcgaWQ9Il8iPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSI4MC4wMSA2NC45OSA4MC4wMSA3MC45OSA3MS4wMSA3MC45OSA3MS4wMSA3OS45OSA2NS4wMSA3OS45OSA2NS4wMSA3MC45OSA1Ni4wMSA3MC45OSA1Ni4wMSA2NC45OSA2NS4wMSA2NC45OSA2NS4wMSA1NS45OSA3MS4wMSA1NS45OSA3MS4wMSA2NC45OSA4MC4wMSA2NC45OSIvPjwvZz48L3N2Zz4=
+
       helpMenuItems:
-      - title: Getting Started
-        icon: mdi-file-document-outline
-        url: https://github.com/gardener/gardener/tree/master/docs
-      - title: Issues
-        icon: mdi-bug
-        url: https://github.com/gardener/gardener/issues
+        - title: Website
+          icon: mdi-web
+          url: https://www.plusserver.com/produkte/managed-kubernetes
+        - title: Support
+          icon: mdi-ticket
+          url: https://login.plusserver.com/de/support/jira-tickets
+        - title: Documentation
+          icon: mdi-file-document-outline
+          url: https://docs.plusserver.com/de/
       # # supported grantTypes of the garden cluster oidc issuer. See https://github.com/int128/kubelogin/blob/master/docs/usage.md for possible values.
       # grantTypes:
       # - auto
@@ -250,7 +259,7 @@ global:
         oidcObservabilityUrlsEnabled: false
 
       shootAdminKubeconfig:
-        enabled: false
+        enabled: true
         maxExpirationSeconds: 86400
 
       # Experimental Features
@@ -329,35 +338,66 @@ global:
       #         inverted: true
 
       # # branding - customize the dashboard branding. See https://github.com/gardener/dashboard/blob/master/docs/operations/customization.md#branding for possible values and a complete example.
-      # branding:
-      #   productName: Nucleus
-      #   productDescription: Supercool Cluster Service
-      #   infraVendors:
-      #   - name: aws
-      #     displayName: Customized AWS
-      #     icon: aws-custom.svg
-      #     weight: 400
+      branding:
+        documentTitle: "PSKE Dashboard"
+
+        productName: "PSKE"
+        productTitle: "PSKE"
+        productSlogan: ""
+
+        loginTeaserHeight: 260
+        loginTeaserTemplate: |
+          <div
+            class="d-flex flex-column align-center justify-center bg-main-background-darken-1 pa-3"
+            style="min-height: {{ minHeight }}px"
+          >
+            <img
+              src="{{ productLogoUrl }}"
+              alt="Login to {{ productName }}"
+              width="140"
+              height="140"
+              class="mt-2"
+            >
+            <div class="text-h3 text-center font-weight-mediumtext-white mt-4">
+              {{ productTitle }}
+            </div>
+            <div class="text-h5 text-center font-weight-light text-white mt-1">
+              {{ productSlogan }}
+            </div>
+          </div>
+        loginFooterHeight: 24
+        loginFooterTemplate: |
+          <div class="text-anchor text-caption">
+            Learn more about <a href="https://www.plusserver.com/produkte/managed-kubernetes">PSKE</a>
+          </div>
+
+        productTitleSuperscript: false
+        loginHints:
+          - title: Support
+            href: https://login.plusserver.com/en/login
+          - title: Documentation
+            href: https://docs.plusserver.com
 
       # # themes - overwrite theme colors with custom colors, use html color codes or material design colors defined by vuetify in the javascript color pack: https://vuetifyjs.com/en/styles/colors/#javascript-color-pack
-      # themes:
-      #   light: # overwrite light theme colors
-      #     primary: '#0b8062'
-      #     anchor: '#0b8062'
-      #     main-background: 'grey.darken3'
-      #     main-navigation-title: 'shades.white'
-      #     toolbar-background: '#0b8062'
-      #     toolbar-title: 'shades.white'
-      #     action-button: 'grey.darken4'
-      #   dark: # overwrite dark theme colors
-      #     primary: '#0b8062'
-      #     anchor: '#0b8062'
-      #     main-background: 'grey.darken3'
-      #     main-navigation-title: 'shades.white'
-      #     toolbar-background: '#0b8062'
-      #     toolbar-title: 'shades.white'
-      #     action-button: 'grey.lighten4'
-      #     error: 'red.darken4'
-      #     warning: 'orange.darken4'
+      themes:
+        light:
+          primary: '#009BF4'
+          anchor: '#007ACC'
+          main-background: '#009BF4'
+          main-navigation-title: '#FFFFFF'
+          toolbar-background: '#009BF4'
+          toolbar-title: '#FFFFFF'
+          action-button: '#009BF4'
+        dark:
+          primary: '#009BF4'
+          anchor: '#4DB8FF'
+          background: '#121212'
+          surface: '#1E1E1E'
+          main-background: '#009BF4'
+          main-navigation-title: '#FFFFFF'
+          toolbar-background: '#007ACC'
+          toolbar-title: '#FFFFFF'
+          action-button: '#009BF4'
 
       defaultNodesCIDR: 10.250.0.0/16 # default CIDR used for nodes network when creating new shoots
 
