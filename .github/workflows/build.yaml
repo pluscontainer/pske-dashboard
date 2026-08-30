@@ -84,9 +84,9 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
-          node-version: '24.14.1'
+          node-version: '24.20.0'
       - uses: gardener/cc-utils/.github/actions/trusted-checkout@v1 # zizmor: ignore[unpinned-uses] -- same-org action; intentionally allowed for now, planned to pin to a version in the future
       - name: run-verify
         shell: bash
@@ -114,10 +114,10 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
-          node-version: '24.14.1'
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+          node-version: '24.20.0'
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           persist-credentials: false
       - name: run-eslint
