@@ -44,13 +44,6 @@ SPDX-License-Identifier: Apache-2.0
             location="left"
             absolute
           >
-            <template #activator="{ props: menuProps }">
-              <v-btn
-                v-tooltip:top="'Create Infrastructure Secret'"
-                v-bind="menuProps"
-                icon="mdi-plus"
-              />
-            </template>
             <v-list>
               <v-list-subheader>
                 Create Infrastructure Secret
