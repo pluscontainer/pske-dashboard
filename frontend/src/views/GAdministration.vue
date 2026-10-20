@@ -536,7 +536,6 @@ import GTimeString from '@/components/GTimeString.vue'
 import GShootCustomField from '@/components/GShootCustomField.vue'
 import GProjectCostObjectConfiguration from '@/components/GProjectCostObjectConfiguration.vue'
 import GShootCustomFieldsConfiguration from '@/components/GShootCustomFieldsConfiguration.vue'
-import GResourceQuotaHelp from '@/components/GResourceQuotaHelp.vue'
 import GTextRouterLink from '@/components/GTextRouterLink.vue'
 
 import { useProvideProjectItem } from '@/composables/useProjectItem'
@@ -603,7 +602,6 @@ const {
   canDeleteProject,
 } = storeToRefs(authzStore)
 const isKubeconfigEnabled = toRef(kubeconfigStore, 'isKubeconfigEnabled')
-const projectQuotaStatus = toRef(quotaStore, 'projectQuotaStatus')
 
 const userList = computed(() => {
   const members = new Set()
