@@ -150,9 +150,7 @@ import GNewShootInfrastructureDetails from '@/components/NewShoot/GNewShootInfra
 import GNewShootSelectInfrastructure from '@/components/NewShoot/GNewShootSelectInfrastructure'
 import GMaintenanceComponents from '@/components/ShootMaintenance/GMaintenanceComponents'
 import GMaintenanceTime from '@/components/ShootMaintenance/GMaintenanceTime'
-import GManageAddons from '@/components/ShootAddons/GManageAddons'
 import GManageDns from '@/components/ShootDns/GManageDns'
-import GManageControlPlaneHighAvailability from '@/components/ControlPlaneHighAvailability/GManageControlPlaneHighAvailability'
 import GToolbar from '@/components/GToolbar.vue'
 
 import { useShootContext } from '@/composables/useShootContext'
@@ -166,7 +164,6 @@ export default {
     GNewShootInfrastructureDetails,
     GAccessRestrictions,
     GNewShootDetails,
-    GManageAddons,
     GManageDns,
     GMaintenanceComponents,
     GMaintenanceTime,
@@ -174,7 +171,6 @@ export default {
     GManageWorkers: defineAsyncComponent(() => import('@/components/ShootWorkers/GManageWorkers')),
     GMessage,
     GConfirmDialog,
-    GManageControlPlaneHighAvailability,
     GToolbar,
   },
   inject: ['api', 'logger'],
